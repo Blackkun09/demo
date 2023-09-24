@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hover Status Message</title>
+
+</head>
+<body>
+    
+    <center>
+        <a href="#" id="link1" onmouseover="showStatus('This is Link 1')" onmouseout="clearStatus()">Link 1</a>
+        <a href="#" id="link2" onmouseover="showStatus('This is Link 2')" onmouseout="clearStatus()">Link 2</a>
+    </center>
+    <div id="statusMessage"></div>
+
+
+    <script>
+        function showStatus(message) {
+            var statusMessage = document.getElementById("statusMessage");
+            statusMessage.textContent = message;
+            statusMessage.style.display = "block";
+        }
+
+        function clearStatus() {
+            var statusMessage = document.getElementById("statusMessage");
+            statusMessage.style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>

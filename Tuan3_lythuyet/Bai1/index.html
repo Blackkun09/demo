@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slideshow</title>
+</head>
+<body onload="startSlideshow()">
+    <center>
+        <div id="demo">
+            <input type="button" value="Start change image" onclick="startSlideshow()">
+            <input type="button" value="Stop" onclick="stopSlideshow()">
+        </div>
+    </center>
+
+    <img src="../Images/photo1.jpg" alt="" id="image"> <!-- Thêm id="image" vào thẻ img -->
+
+    <script language="JavaScript" type="text/JavaScript">
+        var images = [
+            "../Images/photo1.jpg",
+            "../Images/photo2.jpg",
+            "../Images/photo3.jpg"
+        ];
+        var currentIndex = 0; // Index hiện tại của ảnh đang hiển thị
+        var imageElement = document.getElementById("image"); // Lấy phần tử ảnh
+        var idq; // Biến để lưu trữ ID của setInterval
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length; // Di chuyển đến ảnh tiếp theo
+            imageElement.src = images[currentIndex]; // Đặt ảnh mới
+        }
+
+        function startSlideshow() {
+            idq = setTimeout(changeImage, 2000); // Thiết lập hàm đổi ảnh tự động sau mỗi 3 giây (3000 ms)
+        }
+
+        function stopSlideshow() {
+            clearTimeout(idq); // Dừng chuyển đổi ảnh tự động
+        }
+    </script>
+</body>
+</html>
